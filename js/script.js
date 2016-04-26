@@ -45,18 +45,21 @@ $(document).ready(function(){
 
   $(".has-menu-l2").on("click", function (e) {
     e.preventDefault();
-    $(".catalog-l1 a").removeClass("active");
+
     $(".catalog-l2").slideUp();
     $(".catalog-l3").slideUp();
 
-    $(this).toggleClass("active")
-
     if ( $(this).hasClass("active") ){
-      $(this).parent("li").find(".catalog-l2").slideDown();
-    } else {
+      $(".catalog-l1 a").removeClass("active");
+
       $(this).parent("li").find(".catalog-l2").slideUp();
       $(this).parent("li").find(".catalog-l3").slideUp();
-      $(".catalog-l2 a").removeClass("active");
+
+    } else {
+      $(".catalog-l1 a").removeClass("active");
+      $(this).addClass("active")
+      $(this).parent("li").find(".catalog-l2").slideDown();
+
     }
   });
 
