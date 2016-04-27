@@ -18,6 +18,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'BookmanOldStyle-Bold';
+  src: url('../fonts/BookmanOldStyle-Bold/BookmanOldStyle-Bold.eot?#iefix') format('embedded-opentype'),  url('../fonts/BookmanOldStyle-Bold/BookmanOldStyle-Bold.woff') format('woff'), url('../fonts/BookmanOldStyle-Bold/BookmanOldStyle-Bold.ttf')  format('truetype'), url('../fonts/BookmanOldStyle-Bold/BookmanOldStyle-Bold.svg#BookmanOldStyle-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 
 
 html{
@@ -31,11 +39,27 @@ body{
 .hidden{
 	overflow: hidden;
 }
+a[href^="tel"]{
+    color:inherit;
+    text-decoration:none;
+}
 
 body, select, input, textarea{
 	color:#fff;
 	font-size:1rem;
 	font-family: 'BookmanOldStyle';
+
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+
+  text-rendering: optimizeLegibility;
+  text-rendering: geometricPrecision;
+  font-smooth: always;
+
+  font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
+
 }
 a{color: #f5eb91;}
 a:hover{text-decoration: none;}
@@ -128,8 +152,9 @@ header{
 	background: #f5eb91;
 }
 .menu-head > span{
-	font-size: 1.429rem;
-	font-weight: bold;
+	font-size: 1.286rem;
+	/*font-weight: bold;*/
+  font-family: 'BookmanOldStyle-Bold';
 }
 .menu-cart{
 	position: absolute;
@@ -159,6 +184,19 @@ header{
 	-webkit-background-size: 23px 23px;
 	background-size: 23px 23px;
 }
+.back-cart{
+  position: absolute;
+	top:16px;
+	right: 75px;
+	width: 15px;
+	height: 23px;
+	display: block;
+	cursor: pointer;
+	background: url(../images/icons/slick-arrow.png) no-repeat 0 0;
+  -webkit-background-size: 15px 23px;
+	background-size: 15px 23px;
+  transform: rotate(180deg);
+}
 .menu ul{
 	margin: 0;
 	padding:20px;
@@ -178,8 +216,8 @@ header{
 }
 .main-menu a{
 	color: #000;
-	font-size: 1.429rem;
-	font-weight: bold;
+	font-size: 1.286rem;
+	font-family: 'BookmanOldStyle-Bold';
 }
 .sub-menu li{
 	padding: 8px 0;
@@ -268,6 +306,7 @@ section{
 	opacity: .6;
 }
 section h3{
+  font-family: 'BookmanOldStyle-Bold';
 	font-size: 1.429rem;
 }
 section p{
@@ -288,6 +327,11 @@ section p{
 	border-radius: 50%;
 	border: none;
 	outline: none;
+
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  font-size: 0;
 	text-indent: -9999px;
 	background: rgb(209,212,211);
 	background: -moz-linear-gradient(top,  rgba(209,212,211,1) 0%, rgba(255,255,255,1) 100%);
@@ -343,6 +387,7 @@ section.text{
 }
 section.text h1{
 	font-size: 1.429rem;
+  font-family: 'BookmanOldStyle-Bold';
 }
 
 
@@ -405,7 +450,7 @@ textarea{
 	color: #fff;
 	position: relative;
 	font-size: 1.286rem;
-	font-weight: bold;
+	font-family: 'BookmanOldStyle-Bold';
 	padding:20px 60px 20px 20px;
 	display: block;
 	text-decoration: none;
@@ -456,7 +501,7 @@ textarea{
 	color: #000;
 	position: relative;
 	font-size: 1.143rem;
-	font-weight: bold;
+	font-family: 'BookmanOldStyle-Bold';
 	padding:20px 60px 20px 20px;
 	display: block;
 	text-decoration: none;
@@ -516,13 +561,16 @@ textarea{
 	font-size: 1.286rem;
 	text-transform: uppercase;
 	text-decoration: underline;
-	font-weight: bold;
+	font-family: 'BookmanOldStyle-Bold';
 	text-align: center;
 	padding:20px;
 	background: #f5eb91;
 	margin: 20px auto;
 	box-sizing: border-box;
 	border-radius: 12px;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
 	-webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,.1);
 	box-shadow: 0 3px 3px 0 rgba(0,0,0,.1);
 }
@@ -532,7 +580,7 @@ textarea{
 	color: #000;
 	position: relative;
 	font-size: 1.286rem;
-	font-weight: bold;
+	font-family: 'BookmanOldStyle-Bold';
 	text-align: center;
 	padding:20px 60px 20px 20px;
 	background: #f5eb91;
@@ -563,7 +611,7 @@ textarea{
 .back-link{
 	color: #f5eb91;
 	font-size: 1.286rem;
-	font-weight: bold;
+	font-family: 'BookmanOldStyle-Bold';
 	display: block;
 	text-decoration: none;
 }
@@ -659,7 +707,7 @@ input.btn{
 	width: 130px;
 	position: relative;
   display: block;
-	font-weight: bold;
+	font-family: 'BookmanOldStyle-Bold';
 	text-align: center;
 	padding:14px 15px 15px;
 	background-color: #f5eb91;
@@ -669,7 +717,7 @@ input.btn{
   -webkit-appearance:none;
   -moz-appearance:none;
   appearance:none;
-  
+
 	-webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,.1);
 	box-shadow: 0 3px 3px 0 rgba(0,0,0,.1);
 }
@@ -718,7 +766,7 @@ input.btn{
 }
 .price{
 	font-size: 1.286rem;
-	font-weight: bold;
+	font-family: 'BookmanOldStyle-Bold';
 }
 
 /* pager */
@@ -813,7 +861,7 @@ input.btn{
 .total{
 	color: #fff;
 	font-size: 1.286rem;
-	font-weight: bold;
+	font-family: 'BookmanOldStyle-Bold';
 	margin-bottom: 35px;
 	text-transform: uppercase;
 }
@@ -831,6 +879,9 @@ input.btn{
 	color: #f5eb91;
 	display: block;
 	margin: -8px 0 10px 8px;
+}
+.shoping-cart select{
+  font-size: 0.9286rem;
 }
 .error{
 	background: #ff9999;
@@ -865,7 +916,7 @@ input.btn{
 }
 .contacts h3{
 	color: #f5eb91;
-	font-weight: bold;
+	font-family: 'BookmanOldStyle-Bold';
 	font-size: 1.286rem;
 	text-transform: uppercase;
 	padding: 20px 0 0;
@@ -888,8 +939,10 @@ footer{
 .footer-info a{
 	color: #fff;
 }
-.footer-info span{
+.footer-info span,
+.footer-info a[href^="tel"]{
 	color: #f5eb91;
+  margin-right: 10px;
 }
 footer p{
 	text-align: center;
