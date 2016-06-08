@@ -13,8 +13,18 @@ $(function () {
         columns.height(tallestcolumn);
     }
 
-    $('.burger').on('click', function () {
-        $('body').toggleClass('open-menu');
+    $('.burger').on('click',function () {
+        var $body = $('body');
+        $body.toggleClass('open-menu');
+        if($body.hasClass('open-menu')) {
+            $body.off("mousewheel").on("mousewheel", function() {
+                    return false;
+                });
+        } else {
+            $body.off("mousewheel").on("mousewheel", function() {
+                return true;
+            });
+        }
     });
 
     $('header .search a').on('click', function (e) {
@@ -117,12 +127,17 @@ $(function () {
             autoplay: true,
             autoplayTimeout: 5000,
             autoplaySpeed: 1000,
-            items: 1
+            items: 1,
+            onInitialized: function () {
+                $('.info-slide').removeClass('title-slide_v');
+            }
         });
 
     } else {
         proSlider.css("opacity", 1);
     }
+
+
     var proSlider2 = $('.slider-brand');
     if (proSlider2.children().length > 1) {
         proSlider2.on('initialized.owl.carousel', function () {
@@ -172,28 +187,6 @@ $(function () {
 
     $('.list-town__i').mCustomScrollbar();
 
-    //var controls = {
-    //    video: $("#myvideo"),
-    //    playpause: $(".playpause")
-    //};
-    //
-    //var video = controls.video[0];
-    //
-    //controls.playpause.click(function(){
-    //    if (video.paused) {
-    //        video.play();
-    //    } else {
-    //        video.pause();
-    //    }
-    //
-    //    $(this).toggleClass("paused");
-    //    $('.video').toggleClass("active");
-    //    setTimeout(function() {
-    //       // $('.video').removeClass("active");
-    //    }, 2000);
-    //});
-
-
     var video = document.getElementById('myvideo'),
         play = document.getElementById('play'),
         time;
@@ -217,25 +210,14 @@ $(function () {
     });
 
 
-    //if($(window).width() <= 768) {
-    //    $('.video .playpause').on('click', function() {
-    //        //$('.video').removeClass("active");
-    //        $('.playpause').trigger('pause');
-    //    });
-    //}
     if ($(window).width() > 1175) {
+
         var ee = new EventEmitter();
         $.smartscroll({
             mode: "set",
-            //eventEmitter: ee
+           // headerHash: "welcome",
+            eventEmitter: ee
         });
-        //$(".section-wrapper").onepage_scroll({
-        //    sectionContainer: "section", // sectionContainer accepts any kind of selector in case you don't want to use section
-        //    easing: "ease", // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in", "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
-        //    animationTime: 900, // AnimationTime let you define how long each section takes to animate
-        //    pagination: true, // You can either show or hide the pagination. Toggle true for show, false for hide.
-        //    updateURL: false // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
-        //});
 
     }
 
@@ -278,96 +260,7 @@ $(function () {
             $window.on('scroll resize', check_if_in_view);
             $window.trigger('scroll');
         });
-
-
     }
 
-
-    //// 2. This code loads the IFrame Player API code asynchronously.
-    //var tag = document.createElement('script');
-    //
-    //tag.src = "https://www.youtube.com/iframe_api";
-    //var firstScriptTag = document.getElementsByTagName('script')[0];
-    //firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-
 });
-//function onYouTubeIframeAPIReady() {
-//    $(function () {
-//
-//        var playersList = {};
-//
-//        $('.content-video').each(function () {
-//            var player;
-//            var el = $(this);
-//
-//
-//            player = new YT.Player($(this).find('div').get(0), {
-//                width: '100%',
-//                height: '100%',
-//                playerVars: {
-//                    showinfo: 0,
-//                    hd: 1,
-//                    rel: 0,
-//                    egm: 0,
-//                    showsearch: 0,
-//                    wmode: 'opaque',
-//                    controls:0,
-//                    frameborder:"0",
-//                    autohide:1
-//                },
-//                videoId: YouTubeGetID(el.attr('data-video-id')),
-//                events: {
-//                    'onReady': function (e) {
-//                        e.target.addEventListener('onStateChange', function (event) {
-//                            if (event.data == 0 || event.data == 2) {
-//                                $('.video-gal_i').fadeIn();
-//                            }
-//                        });
-//                    }
-//                }
-//            });
-//            el.data('ytPlayer', player);
-//            el.find('.popup-close').on('touch click', function (e) {
-//                player.stopVideo();
-//            });
-//        });
-//
-//
-//
-//        $('.play-video').on('click', function (e) {
-//            e.preventDefault();
-//            var player = $('.content-video').data('ytPlayer');
-//            if (!$('.play-video').hasClass('active')) {
-//                setTimeout(function () {
-//                    player.playVideo();
-//                }, 100);
-//            } else {
-//                setTimeout(function () {
-//                    player.stopVideo();
-//                }, 100);
-//
-//            }
-//            $(this).toggleClass('active');
-//
-//        });
-//
-//    });
-//
-//
-//}
-//
-//function YouTubeGetID(url) {
-//    var ID = '';
-//    url = url.replace(/(>|<)/gi, '').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
-//    if (url[2] !== undefined) {
-//        ID = url[2].split(/[^0-9a-z_\-]/i);
-//        ID = ID[0];
-//    }
-//    else {
-//        ID = url;
-//    }
-//    return ID;
-//}
-
 
