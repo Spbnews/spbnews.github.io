@@ -9223,7 +9223,7 @@ return c.advanced.updateOnSelectorChange&&t.length>0&&t.each(function(){e+=this.
 	///////////////
 	///CONSTANTS///
 	///////////////
-	
+
 	var MOUSE_EVENTS_STRING = 'mousewheel DOMMouseScroll wheel MozMousePixelScroll';
 
 	//////////////////
@@ -9239,7 +9239,7 @@ return c.advanced.updateOnSelectorChange&&t.length>0&&t.each(function(){e+=this.
 	///////////////
 	///FUNCTIONS///
 	///////////////
-	
+
 	var getWindowTop = function () {
 		// jQuery uses only window.pageYOffset
 		// https://github.com/jquery/jquery/blob/29370190605ed5ddf5d0371c6ad886a4a4b5e0f9/src/offset.js#L184
@@ -9251,13 +9251,13 @@ return c.advanced.updateOnSelectorChange&&t.length>0&&t.each(function(){e+=this.
 
 			// Does not work for IE versions below Edge
 			// https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY
-			// 
+			//
 			// window.scrollY,
 
 			// Caters for quirks mode
 			// Deprecated in ES5 strict mode
 			// so for standards mode use document.documentElement.scrollTop instead
-			// 
+			//
 			window.document.body.scrollTop,
 
 			// Caters for standards mode
@@ -9269,7 +9269,7 @@ return c.advanced.updateOnSelectorChange&&t.length>0&&t.each(function(){e+=this.
 	var isInArray = function(value, array) {
 	  return array.indexOf(value) > -1;
 	}
-	
+
 	$.smartscroll = function(overrides) {
 
 		/////////////
@@ -9365,7 +9365,7 @@ return c.advanced.updateOnSelectorChange&&t.length>0&&t.each(function(){e+=this.
 		///////////////
 		///FUNCTIONS///
 		///////////////
-		
+
 		// Check if the view is currently within the section wrapper
 		var sectionWrapperIsVisible = function () {
 			var windowTop = getWindowTop();
@@ -9520,13 +9520,13 @@ return c.advanced.updateOnSelectorChange&&t.length>0&&t.each(function(){e+=this.
 									scrollToPixel(sections[sectionIndexAtWindowMiddle - 1] - $(window).height(), options.animationSpeed);
 								}
 								if(options.eventEmitter) {
-									options.eventEmitter.emitEvent("scrollStart", [sectionIndexAtWindowMiddle - 1]);	
+									options.eventEmitter.emitEvent("scrollStart", [sectionIndexAtWindowMiddle - 1]);
 								}
 							}
 							else if(scrollAction === "down") {
 								scrollToPixel(sections[sectionIndexAtWindowMiddle] + 1, options.animationSpeed);
 								if(options.eventEmitter) {
-									options.eventEmitter.emitEvent("scrollStart", [sectionIndexAtWindowMiddle + 1]);	
+									options.eventEmitter.emitEvent("scrollStart", [sectionIndexAtWindowMiddle + 1]);
 								}
 							}
 						}
@@ -9540,37 +9540,37 @@ return c.advanced.updateOnSelectorChange&&t.length>0&&t.each(function(){e+=this.
 			$(window).unbind(MOUSE_EVENTS_STRING);
 		}
 
-		// Change the hash (and also record history depending on options)
-		var autoHash = function () {
-			var newHash;
-			if((getWindowTop() + ($(window).height() / 2)) < sectionWrapperTop) {
-				newHash = options.headerHash;
-			} else {
-				var slideIndex = getSectionIndexAt(getWindowTop() + ($(window).height() / 2));
-				if(slideIndex !== undefined) {
-					newHash = $(options.sectionSelector + ':nth-of-type(' + (slideIndex + 1) + ')').data('hash');
-				}
-			}
-			if(typeof newHash === 'undefined' || !(window.location.hash === ('#' + newHash))) {
-				if(typeof newHash === 'undefined') {
-					newHash = options.headerHash;
-				}
-				if(!options.keepHistory) {
-					window.location.replace(window.location.href.split('#')[0] + '#' + newHash);
-				} else {
-					window.location.hash = newHash;
-				}
-			}
-		}
-
-		///////////////////
+		//// Change the hash (and also record history depending on options)
+		//var autoHash = function () {
+		//	var newHash;
+		//	if((getWindowTop() + ($(window).height() / 2)) < sectionWrapperTop) {
+		//		newHash = options.headerHash;
+		//	} else {
+		//		var slideIndex = getSectionIndexAt(getWindowTop() + ($(window).height() / 2));
+		//		if(slideIndex !== undefined) {
+		//			newHash = $(options.sectionSelector + ':nth-of-type(' + (slideIndex + 1) + ')').data('hash');
+		//		}
+		//	}
+		//	if(typeof newHash === 'undefined' || !(window.location.hash === ('#' + newHash))) {
+		//		if(typeof newHash === 'undefined') {
+		//			newHash = options.headerHash;
+		//		}
+		//		if(!options.keepHistory) {
+		//			window.location.replace(window.location.href.split('#')[0] + '#' + newHash);
+		//		} else {
+		//			window.location.hash = newHash;
+		//		}
+		//	}
+		//}
+        //
+		/////////////////////
 		///INITIAL SETUP///
 		///////////////////
 
 		sectionWrapper.css({
 			'position': 'relative'
 		});
-		
+
 		// Need to wait until content and CSS has been parsed
 		// So the height is accurate
 		setTimeout(function () {
@@ -9585,13 +9585,13 @@ return c.advanced.updateOnSelectorChange&&t.length>0&&t.each(function(){e+=this.
 				}
 				// Fallback with binding scroll events.
 				// Many scroll events are fired and so is very resource-intensive
-				else {
-					$(window).bind('scroll', autoHash);
-				}
+				//else {
+				//	$(window).bind('scroll', autoHash);
+				//}
 			}
 
 			// Scroll to hash
-		
+
 			if(options.initialScroll && currentHash.length > 0) {
 				// Remove the '#' from the hash and use jQuery to check
 				// if an element exists with that hash in the 'data-hash' attribute
@@ -9614,7 +9614,7 @@ return c.advanced.updateOnSelectorChange&&t.length>0&&t.each(function(){e+=this.
 		}
 
 		// Mode
-		
+
 		// If the mode is set to vp (viewpoint),
 		// make the height of each section the same as the viewport
 		if (options.mode == "vp") {
@@ -9706,7 +9706,7 @@ return c.advanced.updateOnSelectorChange&&t.length>0&&t.each(function(){e+=this.
 									scrollToPixel(sections[sectionIndexAtWindowMiddle - 1] - $(window).height(), options.animationSpeed);
 								}
 								if(options.eventEmitter) {
-									options.eventEmitter.emitEvent("scrollStart", [sectionIndexAtWindowMiddle - 1]);	
+									options.eventEmitter.emitEvent("scrollStart", [sectionIndexAtWindowMiddle - 1]);
 								}
 							break;
 							// down arrow
@@ -9715,7 +9715,7 @@ return c.advanced.updateOnSelectorChange&&t.length>0&&t.each(function(){e+=this.
 								e.stopPropagation();
 								scrollToPixel(sections[sectionIndexAtWindowMiddle] + 1, options.animationSpeed);
 								if(options.eventEmitter) {
-									options.eventEmitter.emitEvent("scrollStart", [sectionIndexAtWindowMiddle + 1]);	
+									options.eventEmitter.emitEvent("scrollStart", [sectionIndexAtWindowMiddle + 1]);
 								}
 							break;
 
