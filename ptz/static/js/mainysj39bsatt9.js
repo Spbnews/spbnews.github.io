@@ -9540,7 +9540,7 @@ return c.advanced.updateOnSelectorChange&&t.length>0&&t.each(function(){e+=this.
 			$(window).unbind(MOUSE_EVENTS_STRING);
 		}
 
-		//// Change the hash (and also record history depending on options)
+		// Change the hash (and also record history depending on options)
 		//var autoHash = function () {
 		//	var newHash;
 		//	if((getWindowTop() + ($(window).height() / 2)) < sectionWrapperTop) {
@@ -9562,8 +9562,8 @@ return c.advanced.updateOnSelectorChange&&t.length>0&&t.each(function(){e+=this.
 		//		}
 		//	}
 		//}
-        //
-		/////////////////////
+
+		///////////////////
 		///INITIAL SETUP///
 		///////////////////
 

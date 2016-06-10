@@ -219,16 +219,18 @@ $(function () {
 
 
 
-    if ($(window).width() > 1175) {
+    $(window).load(function() {
+        if ($(window).width() > 1175) {
 
-        var ee = new EventEmitter();
-        $.smartscroll({
-            mode: "set"
+            var ee = new EventEmitter();
+            $.smartscroll({
+                mode: "set",
 
-            //eventEmitter: ee
-        });
+                eventEmitter: ee
+            });
 
-    }
+        }
+    });
 
     if ($(window).width() <= 1175) {
         $('div, section').removeClass('animation-element');
