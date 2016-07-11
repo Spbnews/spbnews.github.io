@@ -377,6 +377,22 @@ body {
   text-align: center;
 }
 
+@media only screen and (min-width: 768px) and (max-width: 1175px) {
+  .brand-title-main {
+    top: inherit;
+    bottom: 20px;
+    text-align: left;
+    left: 40px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .brand-title-main {
+    top: inherit;
+    bottom: 20px;
+  }
+}
+
 .brand-title-main span {
   font-size: 137px;
   color: #ffffff;
@@ -407,17 +423,21 @@ body {
   line-height: 1;
   color: #ffffff;
   font-family: "heliosblackcregular", sans-serif;
+  position: relative;
+  left: -25px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1175px) {
   .brand-title-main span i {
     font-size: 25px;
+    left: 0;
   }
 }
 
 @media only screen and (max-width: 767px) {
   .brand-title-main span i {
     font-size: 15px;
+    left: 0;
   }
 }
 
