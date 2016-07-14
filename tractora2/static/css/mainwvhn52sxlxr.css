@@ -2482,6 +2482,7 @@ nav .nav-list > ul > li ul li a:hover {
 .section-contact .nice .text p, .section-contact .nice .text b {
   display: table-cell;
   vertical-align: middle;
+  font-family: "helveticaneuecyrlight",sans-serif;
 }
 
 .section-contact .nice b {
@@ -3577,7 +3578,14 @@ nav .nav-list > ul > li ul li a:hover {
   max-width: 200px;
   margin: auto;
 }
-
+@media only screen and (max-width: 1175px) and (min-width: 768px){
+  .section-footer .wrap-copy .copy{
+    width: 193px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+  }
+}
 .section-footer .wrap-copy .item {
   text-align: right;
 }
@@ -3595,7 +3603,11 @@ nav .nav-list > ul > li ul li a:hover {
   line-height: 24px;
   margin-right: 6px;
 }
-
+@media only screen and (max-width: 1175px) and (min-width: 768px) {
+  .section-footer .wrap-copy .item span{
+    display: block;
+  }
+}
 @media only screen and (max-width: 767px) {
   .section-footer .wrap-copy .item span {
     display: block;
@@ -3716,7 +3728,7 @@ nav .nav-list > ul > li ul li a:hover {
 .section-footer .inf {
   padding-left: 32px;
   padding-bottom: 11px;
-  height: 311px;
+  /*height: 311px;*/
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1175px) {
@@ -3747,6 +3759,7 @@ nav .nav-list > ul > li ul li a:hover {
 }
 
 .section-footer .inf li a {
+  font-family: "helveticaneuecyrlight",sans-serif;
   color: rgba(255, 255, 255, 0.5);
   font-size: 16px;
   font-weight: 300;
