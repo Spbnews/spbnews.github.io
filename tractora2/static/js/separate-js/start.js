@@ -13,15 +13,15 @@ $(function () {
         columns.height(tallestcolumn);
     }
 
-    $('.burger').on('click',function () {
+    $('.burger').on('click', function () {
         var $body = $('body');
         $('html, body').toggleClass('open-menu');
-        if($('html, body').hasClass('open-menu')) {
-            $body.off("mousewheel").on("mousewheel", function() {
-                    return false;
-                });
+        if ($('html, body').hasClass('open-menu')) {
+            $body.off("mousewheel").on("mousewheel", function () {
+                return false;
+            });
         } else {
-            $body.off("mousewheel").on("mousewheel", function() {
+            $body.off("mousewheel").on("mousewheel", function () {
                 return true;
             });
         }
@@ -161,7 +161,7 @@ $(function () {
     }
 
 
-    $(window).load(function() {
+    $(window).load(function () {
         if ($(window).width() >= 768) {
             $(window).resize(function () {
                 setTimeout(function () {
@@ -208,28 +208,37 @@ $(function () {
         play = document.getElementById('play'),
         time;
     video.addEventListener('webkitbeginfullscreen', function () {
-      //  play.innerText = 'play fullscreen video';
+        //  play.innerText = 'play fullscreen video';
         window.clearInterval(time);
     });
-    video.addEventListener('webkitendfullscreen', function () {
+    video.addEventListener('pause', function () {
         video.pause();
+        //$('.video').removeClass('active');
+        //   console.log('sdss')
     });
     play.addEventListener('touchstart', function () {
-        time = window.setInterval(function () {
-            try {
-                video.webkitEnterFullscreen();
-            }
-            catch (e) {
-            }
-        }, 250);
-       // play.innerText = 'loading ...';
+        //time = window.setInterval(function () {
+        //    try {
+        //        video.webkitEnterFullscreen();
+        //    }
+        //    catch (e) {
+        //    }
+        //}, 250);
+        // play.innerText = 'loading ...';
+        video.play();
+    });
+    $('#controls').on('click', function () {
+        $('.video').addClass('active');
+        $('.close-video').addClass('active');
         video.play();
     });
 
-
-
-
-    $(window).load(function() {
+    $('.close-video').on('click', function () {
+        $('.video').removeClass('active');
+        $('.close-video').removeClass('active');
+        video.pause();
+    });
+    $(window).load(function () {
         if ($(window).width() > 1175) {
 
             var ee = new EventEmitter();
@@ -289,19 +298,21 @@ $(function () {
         document.cookie = "username=1";
     });
 
-    $('nav .search').on('click', function(e) {
+    $('nav .search').on('click', function (e) {
         e.preventDefault();
         $(this).addClass('open');
     });
 
     var coock = document.cookie;
-    function SetTheCoockie(){
-        if(coock == "username=1"){
+
+    function SetTheCoockie() {
+        if (coock == "username=1") {
             $('.dr-m').remove();
-        }else{
+        } else {
             $('.dr-m').fadeIn();
         }
     }
+
     SetTheCoockie();
 
 });
